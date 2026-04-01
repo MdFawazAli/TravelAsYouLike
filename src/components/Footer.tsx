@@ -4,11 +4,33 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight, Apple, Smartphone } from "lucide-react";
 import Logo from "./Logo";
 
-const links = {
-  Company: ["About Us", "Careers", "Press", "Blog"],
-  Support: ["Help Center", "Cancellation Policy", "Safety", "Accessibility"],
-  Destinations: ["Bali", "Santorini", "Maldives", "Swiss Alps", "Dubai", "Kyoto"],
-  Legal: ["Terms of Service", "Privacy Policy", "Cookies", "Sitemap"],
+const footerLinks = {
+  Company: [
+    { label: "About Us", href: "/about" },
+    { label: "Careers", href: "#" },
+    { label: "Press", href: "#" },
+    { label: "Blog", href: "#" }
+  ],
+  Support: [
+    { label: "Help Center", href: "#" },
+    { label: "Cancellation Policy", href: "#" },
+    { label: "Safety", href: "#" },
+    { label: "Accessibility", href: "#" }
+  ],
+  Destinations: [
+    { label: "Bali", href: "#" },
+    { label: "Santorini", href: "#" },
+    { label: "Maldives", href: "#" },
+    { label: "Swiss Alps", href: "#" },
+    { label: "Dubai", href: "#" },
+    { label: "Kyoto", href: "#" }
+  ],
+  Legal: [
+    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Cookies", href: "#" },
+    { label: "Sitemap", href: "#" }
+  ],
 };
 
 export default function Footer() {
@@ -70,14 +92,14 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          {Object.entries(links).map(([title, items]) => (
+          {Object.entries(footerLinks).map(([title, items]) => (
             <div key={title} className="lg:col-span-1">
               <h4 className="font-black text-white text-[11px] uppercase tracking-[0.2em] mb-7">{title}</h4>
               <ul className="space-y-4">
                 {items.map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="text-[14px] text-white/40 hover:text-white transition-colors duration-300">
-                      {item}
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-[14px] text-white/40 hover:text-white transition-colors duration-300">
+                      {item.label}
                     </Link>
                   </li>
                 ))}

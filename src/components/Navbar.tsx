@@ -64,9 +64,9 @@ export default function Navbar({ variant = "transparent" }: { variant?: "transpa
 
         {/* Actions - Right Aligned */}
         <div className="hidden md:flex items-center gap-2 shrink-0 relative z-10">
-          <button className="px-5 py-2 text-white/90 hover:text-white text-sm font-bold rounded-full transition-all cursor-pointer hover:bg-white/10">
+          <Link href="/auth" className="px-5 py-2 text-white/90 hover:text-white text-sm font-bold rounded-full transition-all cursor-pointer hover:bg-white/10">
             Sign In
-          </button>
+          </Link>
           <button className="px-6 py-2.5 bg-accent hover:bg-accent-light text-white text-sm font-black rounded-full transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(255,107,44,0.4)] active:scale-[0.95]">
             Book Now
           </button>
@@ -100,9 +100,9 @@ export default function Navbar({ variant = "transparent" }: { variant?: "transpa
               </Link>
             ))}
             <div className="pt-4 flex flex-col gap-3">
-              <button className="w-full py-4 text-white/80 border border-white/10 rounded-2xl font-bold cursor-pointer hover:bg-white/5 transition-all">
+              <Link href="/auth" onClick={() => setMobileOpen(false)} className="w-full py-4 text-white/80 border border-white/10 rounded-2xl font-bold cursor-pointer hover:bg-white/5 transition-all text-center">
                 Sign In
-              </button>
+              </Link>
               <button className="w-full py-4 bg-accent text-white rounded-2xl font-black cursor-pointer hover:bg-accent-light transition-all shadow-lg">
                 Book Now
               </button>
