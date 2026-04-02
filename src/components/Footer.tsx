@@ -18,12 +18,10 @@ const footerLinks = {
     { label: "Accessibility", href: "#" }
   ],
   Destinations: [
-    { label: "Bali", href: "#" },
-    { label: "Santorini", href: "#" },
-    { label: "Maldives", href: "#" },
-    { label: "Swiss Alps", href: "#" },
-    { label: "Dubai", href: "#" },
-    { label: "Kyoto", href: "#" }
+    { label: "Spain", href: "/deals/1" },
+    { label: "Turkey", href: "/deals/2" },
+    { label: "Greece", href: "/deals/3" },
+    { label: "Canary Islands", href: "/deals/4" },
   ],
   Legal: [
     { label: "Terms of Service", href: "#" },
@@ -62,6 +60,53 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Contact & Booking Section */}
+      <div className="border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* New Bookings */}
+            <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.06] transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-accent" />
+                </div>
+                <h4 className="font-heading font-black text-white text-lg">For New Bookings</h4>
+              </div>
+              <p className="text-white/40 text-sm mb-3">Or for sales enquiries, call reservations, on</p>
+              <a href="tel:+442034740053" className="block font-heading font-black text-white text-2xl hover:text-accent transition-colors">020 3474 0053</a>
+              <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+                <span className="text-white/40 text-sm">Monday – Sunday</span>
+                <span className="text-white/60 text-sm font-bold">09:00 – 17:00</span>
+              </div>
+            </div>
+
+            {/* Customer Support */}
+            <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.06] transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-teal/15 rounded-xl flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-teal" />
+                </div>
+                <h4 className="font-heading font-black text-white text-lg">For Customer Support</h4>
+              </div>
+              <p className="text-white/40 text-sm mb-3">Call us on</p>
+              <a href="tel:+442034740053" className="block font-heading font-black text-white text-2xl hover:text-teal transition-colors">020 3474 0053</a>
+            </div>
+
+            {/* Already Booked */}
+            <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.06] transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-gold/15 rounded-xl flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-gold" />
+                </div>
+                <h4 className="font-heading font-black text-white text-lg">Already Booked?</h4>
+              </div>
+              <p className="text-white/40 text-sm mb-3">Call customer services, on</p>
+              <a href="tel:+442034740053" className="block font-heading font-black text-white text-2xl hover:text-gold transition-colors">020 3474 0053</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
@@ -72,9 +117,13 @@ export default function Footer() {
               <Link href="/" className="inline-block mb-6 group">
                 <Logo variant="light" />
               </Link>
-              <p className="text-white/40 text-[15px] leading-relaxed max-w-sm mb-6">
-                Redefining luxury travel with curated experiences and handpicked properties across the globe.
+              <p className="text-white/40 text-[15px] leading-relaxed max-w-sm mb-4">
+                Travel As You Like Limited. Handpicked holiday deals to Spain, Turkey, Greece & the Canary Islands.
               </p>
+              <div className="flex items-start gap-2 text-white/30 text-sm">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>1st Floor, 8 Town Quay Wharf, Abbey Road, Barking, IG11 7BZ</span>
+              </div>
             </div>
 
             {/* Mobile App Section from Screenshot */}

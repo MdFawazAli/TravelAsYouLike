@@ -135,8 +135,8 @@ export default function HotelDetailPage({ params }: { params: Promise<{ id: stri
                         </div>
                         <div className="flex items-center justify-between pt-3 border-t border-neutral-100">
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-heading font-black text-accent">${room.pricePerNight}</span>
-                            <span className="text-xs text-neutral-400">/night</span>
+                            <span className="text-2xl font-heading font-black text-accent">£{room.pricePerNight}</span>
+                            <span className="text-xs text-neutral-400">pp</span>
                           </div>
                           <button className="flex items-center gap-1 px-5 py-2.5 bg-accent hover:bg-accent-light text-white text-sm font-bold rounded-xl transition-all cursor-pointer active:scale-[0.97]">
                             Select <ChevronRight className="w-4 h-4" />

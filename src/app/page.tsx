@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Star, ArrowRight, Shield, Clock, CreditCard, Headphones,
-  MapPin, Sparkles, TrendingUp, Users, Award,
+  MapPin, Sparkles, TrendingUp, Users, Award, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -14,12 +14,41 @@ import HotelCard from "@/components/HotelCard";
 import Carousel from "@/components/Carousel";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
+import { useRef, useCallback } from "react";
 import { useInView } from "@/lib/useInView";
 import { destinations, packages, testimonials, hotels } from "@/lib/data";
 
 function AnimSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const { ref, inView } = useInView(0.08);
   return <div ref={ref} className={`${className} transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>{children}</div>;
+}
+
+function DealsSlider() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scroll = useCallback((dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.querySelector<HTMLElement>(":scope > *");
+    const w = card ? card.offsetWidth + 24 : 380;
+    scrollRef.current.scrollBy({ left: dir === "left" ? -w : w, behavior: "smooth" });
+  }, []);
+
+  return (
+    <div className="relative py-8">
+      <button onClick={() => scroll("left")} className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white rounded-full shadow-lg border border-neutral-200 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all cursor-pointer hidden sm:flex" aria-label="Previous">
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory px-1">
+        {packages.map((pkg) => (
+          <div key={pkg.id} className="snap-start shrink-0 w-[310px] sm:w-[350px]">
+            <PackageCard pkg={pkg} />
+          </div>
+        ))}
+      </div>
+      <button onClick={() => scroll("right")} className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white rounded-full shadow-lg border border-neutral-200 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all cursor-pointer hidden sm:flex" aria-label="Next">
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
 }
 
 export default function HomePage() {
@@ -31,7 +60,7 @@ export default function HomePage() {
       <HeroCarousel />
 
       {/* ─── SEARCH BAR (overlapping hero) ─── */}
-      <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-40">
+      <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-36">
         <SearchBar variant="hero" />
       </div>
 
@@ -88,7 +117,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-white/60 text-sm font-sans">{dest.hotelCount.toLocaleString()} hotels</span>
                       <span className="bg-accent/90 backdrop-blur-sm text-white text-xs font-sans font-bold px-3 py-1 rounded-full">
-                        From ${dest.startingPrice}
+                        From £{dest.startingPrice}
                       </span>
                     </div>
                   </div>
@@ -117,9 +146,7 @@ export default function HomePage() {
           </AnimSection>
 
           <AnimSection>
-            <Marquee speed={1.2} gap={48} centerFocus className="py-8">
-              {packages.map((pkg) => <PackageCard key={pkg.id} pkg={pkg} />)}
-            </Marquee>
+            <DealsSlider />
           </AnimSection>
         </div>
       </section>
@@ -169,9 +196,9 @@ export default function HomePage() {
           <AnimSection>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { title: "Handpicked Properties", desc: "Every hotel is personally vetted by our experts. We visit, we review, we guarantee quality.", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop", stat: "15,000+", statLabel: "Verified Hotels" },
-                { title: "Unbeatable Prices", desc: "Direct partnerships mean exclusive rates you won't find elsewhere. Save up to 40%.", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop", stat: "40%", statLabel: "Average Savings" },
-                { title: "Seamless Booking", desc: "Instant confirmation, flexible cancellation, and 24/7 support. Travel worry-free.", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop", stat: "2M+", statLabel: "Happy Guests" },
+                { title: "Handpicked Properties", desc: "Every hotel is personally vetted by our experts. We visit, we review, we guarantee quality.", image: "https://images.unsplash.com/photo-1529528553681-62a7d70dc888?w=600&h=400&fit=crop", stat: "150+", statLabel: "Partner Hotels" },
+                { title: "Unbeatable Prices", desc: "Direct partnerships mean exclusive rates you won't find elsewhere. Save up to 40%.", image: "https://images.unsplash.com/photo-1664118145742-f2ad1c09c10b?w=600&h=400&fit=crop", stat: "40%", statLabel: "Average Savings" },
+                { title: "Seamless Booking", desc: "Instant confirmation, flexible cancellation, and 24/7 support. Travel worry-free.", image: "https://images.unsplash.com/photo-1588858487152-b62691c6c1e7?w=600&h=400&fit=crop", stat: "50K+", statLabel: "Happy Guests" },
               ].map((item) => (
                 <div key={item.title} className="group glass-dark rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500">
                   <div className="relative aspect-[16/10] overflow-hidden">
@@ -237,7 +264,7 @@ export default function HomePage() {
       <AnimSection>
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&h=600&fit=crop" alt="Maldives" fill className="object-cover" />
+            <Image src="https://images.unsplash.com/photo-1696519669474-3001c0e2b548?w=1920&h=600&fit=crop" alt="Greek Islands" fill className="object-cover" />
             <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" />
           </div>
           <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">

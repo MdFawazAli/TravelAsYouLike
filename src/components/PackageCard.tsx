@@ -2,6 +2,7 @@
 
 import { useState, useEffect, memo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Star, Clock, Check, Timer } from "lucide-react";
 import type { Package } from "@/lib/data";
 
@@ -88,15 +89,15 @@ const PackageCard = memo(function PackageCard({ pkg }: { pkg: Package }) {
         {/* Price */}
         <div className="mt-auto flex items-end justify-between pt-4 border-t border-neutral-100">
           <div>
-            <span className="text-sm text-neutral-300 line-through font-sans">${pkg.originalPrice.toLocaleString()}</span>
+            <span className="text-sm text-neutral-300 line-through font-sans">£{pkg.originalPrice.toLocaleString()}</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-2xl font-sans font-black text-accent">${pkg.price.toLocaleString()}</span>
-              <span className="text-xs text-neutral-400">/person</span>
+              <span className="text-2xl font-sans font-black text-accent">£{pkg.price.toLocaleString()}</span>
+              <span className="text-xs text-neutral-400">pp</span>
             </div>
           </div>
-          <button className="px-4 py-2.5 bg-accent hover:bg-accent-light text-white text-xs font-bold rounded-xl transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg active:scale-[0.95]">
+          <Link href={`/deals/${pkg.id}`} className="px-4 py-2.5 bg-accent hover:bg-accent-light text-white text-xs font-bold rounded-xl transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg active:scale-[0.95]">
             View Deal
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,35 +6,35 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&h=1080&fit=crop",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=1080&fit=crop",
     tagline: "EXCLUSIVE DEALS",
-    title: "Luxury Hotels",
-    highlight: "Worldwide",
-    subtitle: "Save up to 40% on handpicked 5-star properties",
+    title: "Spanish",
+    highlight: "Sunshine",
+    subtitle: "Majorca, Costa Blanca & Costa Del Sol from £199pp",
     accent: "from-accent/90",
   },
   {
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&h=1080&fit=crop",
-    tagline: "PARADISE AWAITS",
-    title: "Maldives",
-    highlight: "Overwater Villas",
-    subtitle: "All-inclusive packages starting from $1,999",
+    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&h=1080&fit=crop",
+    tagline: "ALL INCLUSIVE",
+    title: "Turkey",
+    highlight: "5 Star Luxury",
+    subtitle: "Premium all-inclusive resorts from £329pp",
     accent: "from-teal/90",
   },
   {
-    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&h=1080&fit=crop",
-    tagline: "ROMANTIC GETAWAY",
-    title: "Santorini",
-    highlight: "Sunset Suites",
-    subtitle: "Caldera views and unforgettable sunsets",
+    image: "https://images.unsplash.com/photo-1696519669474-3001c0e2b548?w=1920&h=1080&fit=crop",
+    tagline: "ISLAND MAGIC",
+    title: "Greece",
+    highlight: "Beach Resorts",
+    subtitle: "Rhodes, Kos, Crete & Corfu from £399pp",
     accent: "from-gold/90",
   },
   {
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&h=1080&fit=crop",
-    tagline: "TROPICAL ESCAPE",
-    title: "Bali",
-    highlight: "Beach Resorts",
-    subtitle: "Spiritual retreats and pristine beaches from $89/night",
+    image: "https://images.unsplash.com/photo-1563188620-da3bd5cb19db?w=1920&h=1080&fit=crop",
+    tagline: "YEAR-ROUND SUN",
+    title: "Canary",
+    highlight: "Islands",
+    subtitle: "Tenerife, Lanzarote & Gran Canaria from £379pp",
     accent: "from-accent/90",
   },
 ];
@@ -96,8 +96,8 @@ export default function HeroCarousel() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-primary/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/80 via-primary/50 to-primary/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent" />
         </div>
       ))}
 
@@ -107,7 +107,7 @@ export default function HeroCarousel() {
       <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-teal/5 rounded-full blur-[60px] animate-float stagger-5" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center pb-32 sm:pb-40">
+      <div className="relative z-10 h-full flex items-center pb-32 sm:pb-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
             {/* Tagline */}

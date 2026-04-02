@@ -42,9 +42,9 @@ export default function BookingCard({ hotelId, hotelName, pricePerNight, origina
       {/* Price */}
       <div>
         <div className="flex items-baseline gap-2">
-          {originalPrice && <span className="text-lg text-neutral-300 line-through font-sans">${originalPrice}</span>}
-          <span className="text-4xl font-sans font-black text-accent">${pricePerNight}</span>
-          <span className="text-neutral-400 text-sm">/night</span>
+          {originalPrice && <span className="text-lg text-neutral-300 line-through font-sans">£{originalPrice}</span>}
+          <span className="text-4xl font-sans font-black text-accent">£{pricePerNight}</span>
+          <span className="text-neutral-400 text-sm">pp</span>
         </div>
         <div className="flex items-center gap-2 mt-2">
           <div className="flex items-center gap-1 bg-gold text-primary-dark px-2.5 py-1 rounded-lg">
@@ -89,9 +89,9 @@ export default function BookingCard({ hotelId, hotelName, pricePerNight, origina
 
       {/* Breakdown */}
       <div className="space-y-2 pt-4 border-t border-neutral-200/60">
-        <div className="flex justify-between text-sm"><span className="text-neutral-400 font-sans">${pricePerNight} x {nights} night{nights > 1 ? "s" : ""}</span><span className="font-bold font-sans">${subtotal}</span></div>
-        <div className="flex justify-between text-sm"><span className="text-neutral-400">Taxes & fees</span><span className="font-bold font-sans">${taxes}</span></div>
-        <div className="flex justify-between font-black text-lg pt-3 border-t border-neutral-200/60"><span>Total</span><span className="text-accent font-sans">${total}</span></div>
+        <div className="flex justify-between text-sm"><span className="text-neutral-400 font-sans">£{pricePerNight} x {nights} night{nights > 1 ? "s" : ""}</span><span className="font-bold font-sans">£{subtotal}</span></div>
+        <div className="flex justify-between text-sm"><span className="text-neutral-400">Taxes & fees</span><span className="font-bold font-sans">£{taxes}</span></div>
+        <div className="flex justify-between font-black text-lg pt-3 border-t border-neutral-200/60"><span>Total</span><span className="text-accent font-sans">£{total}</span></div>
       </div>
 
       {/* CTA */}

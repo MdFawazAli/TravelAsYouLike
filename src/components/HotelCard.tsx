@@ -88,10 +88,10 @@ export default function HotelCard({ hotel, index = 0 }: { hotel: Hotel; index?: 
             <span className="text-[11px] text-neutral-400 uppercase tracking-wider font-semibold">From</span>
             <div className="flex items-baseline gap-1.5">
               {hotel.originalPrice && (
-                <span className="text-sm text-neutral-300 line-through font-sans">${hotel.originalPrice}</span>
+                <span className="text-sm text-neutral-300 line-through font-sans">£{hotel.originalPrice}</span>
               )}
-              <span className="text-2xl font-sans font-black text-accent">${hotel.pricePerNight}</span>
-              <span className="text-xs text-neutral-400">/night</span>
+              <span className="text-2xl font-sans font-black text-accent">£{hotel.pricePerNight}</span>
+              <span className="text-xs text-neutral-400">pp</span>
             </div>
           </div>
           <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent group-hover:shadow-lg transition-all duration-300">
